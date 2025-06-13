@@ -25,8 +25,8 @@ dados_ads = [
 col_ads = ['addressId', 'personId', 'city', 'state']
 address = pd.DataFrame(dados_ads, columns=col_ads)
 
-# print('Dataframe de pessoas: \n', person, '\n')
-# print('Dataframe de enderecos: \n', address)
+print('Dataframe de pessoas: \n', person, '\n')
+print('Dataframe de enderecos: \n', address)
 
 # output do resultado
 df = combine_two_tables(person, address)
