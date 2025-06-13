@@ -15,7 +15,8 @@ dados_psa = [
     [2, 'Alice', 'Bob']
 ]
 col_psa = ['personId', 'lastName', 'firstName']
-person = pd.DataFrame(dados_psa, columns=col_psa)
+person = pd.DataFrame(dados_psa, columns=col_psa).astype(
+    {'personId': 'int64', 'lastName': 'string', 'firstName': 'string'})
 
 # Criando df de endereços
 dados_ads = [
@@ -23,11 +24,12 @@ dados_ads = [
     [2, 3, 'Leetcode', 'New York']
 ]
 col_ads = ['addressId', 'personId', 'city', 'state']
-address = pd.DataFrame(dados_ads, columns=col_ads)
+address = pd.DataFrame(dados_ads, columns=col_ads).astype(
+    {'addressId': 'int64', 'personId': 'int64', 'city': 'string', 'state': 'string'})
 
-print('Dataframe de pessoas: \n', person, '\n')
-print('Dataframe de enderecos: \n', address)
-
-# output do resultado
+# Resultado
+# print('Dataframe de pessoas: \n', person, '\n')
+# print('Dataframe de enderecos: \n', address)
 df = combine_two_tables(person, address)
+df = df.fillna('NULL')
 print(df)
