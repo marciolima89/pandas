@@ -32,13 +32,13 @@ for i in range(n):
 
 dados = {"id": id_list, "score": score_list}
 df = pd.DataFrame(dados)
+df = df.set_index('id')
 
 # criar coluna de rank
 df['rank'] = df['score'].rank(method='dense', ascending=False).astype(int)
 df = df.sort_values(by='score', ascending=False)
 
 print(df[['score', 'rank']])
-
 # Dados para input
 # | 1  | 3.50  |
 # | 2  | 3.65  |
