@@ -1,6 +1,14 @@
 # Bibliotecas necessárias
 import pandas as pd
 
+# Dados para input
+# | 1  | 3.50  |
+# | 2  | 3.65  |
+# | 3  | 4.00  |
+# | 4  | 3.85  |
+# | 5  | 4.00  |
+# | 6  | 3.65  |
+
 # informar a quantidade de registros que serao inseridos
 n = int(input('Quantos registros serão inseridos? '))
 print(n)
@@ -39,10 +47,3 @@ df['rank'] = df['score'].rank(method='dense', ascending=False).astype(int)
 df = df.sort_values(by='score', ascending=False)
 
 print(df[['score', 'rank']])
-# Dados para input
-# | 1  | 3.50  |
-# | 2  | 3.65  |
-# | 3  | 4.00  |
-# | 4  | 3.85  |
-# | 5  | 4.00  |
-# | 6  | 3.65  |
