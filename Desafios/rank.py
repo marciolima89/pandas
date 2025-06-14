@@ -1,9 +1,8 @@
 # Bibliotecas necessárias
 import pandas as pd
 
+
 # funcao
-
-
 def order_scores(scores: pd.DataFrame) -> pd.DataFrame:
     scores = scores[['score', 'rank']]
     return scores
