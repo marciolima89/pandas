@@ -4,7 +4,9 @@ import pandas as pd
 
 # funcao
 def order_scores(scores: pd.DataFrame) -> pd.DataFrame:
-    scores = scores[['score', 'rank']]
+    scores['rank'] = scores['score'].rank(
+        method='dense', ascending=False).astype(int)
+    scores = scores[['score', 'rank']].sort_values(by='rank')
     return scores
 
 
@@ -20,11 +22,8 @@ dados_scores = [
 
 colunas_score = ['id', 'score']
 
+# criar df
 scores = pd.DataFrame(dados_scores, columns=colunas_score).astype(
     {'id': int, 'score': float})
-scores['rank'] = scores['score'].rank(
-    method='dense', ascending=False).astype(int)
-scores = scores.sort_values(by='rank', ascending=True)
-
 df = order_scores(scores)
 print(df)
